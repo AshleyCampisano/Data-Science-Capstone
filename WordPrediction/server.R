@@ -9,11 +9,11 @@ library(dplyr)
 
 #Read in ngram data files
 
-setwd("/Users/acampisano/Documents")
-UnigramProb <- fread("GitHub/DataScienceCapstone/WordPrediction/UnigramProb.csv", header = T, sep = ",")
-BigramProb <- fread("GitHub/DataScienceCapstone/WordPrediction/BigramProb.csv", header = T, sep = ",")
-TrigramProb <- fread("GitHub/DataScienceCapstone/WordPrediction/TrigramProb.csv", header = T, sep = ",")
-FourgramProb <- fread("GitHub/DataScienceCapstone/WordPrediction/FourgramProb.csv", header = T, sep = ",")
+setwd("/Users/ashleycampisano/Documents")
+UnigramProb <- fread("GitHub/Data-Science-Capstone/UnigramProb.csv", header = T, sep = ",")
+BigramProb <- fread("GitHub/Data-Science-Capstone/BigramProb.csv", header = T, sep = ",")
+TrigramProb <- fread("GitHub/Data-Science-Capstone/TrigramProb.csv", header = T, sep = ",")
+FourgramProb <- fread("GitHub/Data-Science-Capstone/FourgramProb.csv", header = T, sep = ",")
 
 #Create function to predict next word when given a phrase
 predictNextWord <- function(sentence, choices=NULL) {
