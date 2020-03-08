@@ -9,27 +9,25 @@ library(dplyr)
 
 #Read in ngram data files
 
-setwd("/Users/ashleycampisano/Documents")
-UnigramProb <- fread("GitHub/Data-Science-Capstone/UnigramProb.csv", header = T, sep = ",")
-BigramProb <- fread("GitHub/Data-Science-Capstone/BigramProb.csv", header = T, sep = ",")
-TrigramProb <- fread("GitHub/Data-Science-Capstone/TrigramProb.csv", header = T, sep = ",")
-FourgramProb <- fread("GitHub/Data-Science-Capstone/FourgramProb.csv", header = T, sep = ",")
+UnigramProb <- fread("UnigramProb.csv", header = T, sep = ",")
+BigramProb <- fread("BigramProb.csv", header = T, sep = ",")
+TrigramProb <- fread("TrigramProb.csv", header = T, sep = ",")
+FourgramProb <- fread("FourgramProb.csv", header = T, sep = ",")
 
-#Create function to predict next word when given a phrase
+#Word Prediction Function
+
 predictNextWord <- function(sentence, choices=NULL) {
     
-    #Clean up input phrase
-    sentenceToken <- as.character(tokens(tolower(sentence), removeNumbers = TRUE, removePunct = TRUE, 
-                              removeSeparators = TRUE, removeSymbols = TRUE, removeTwitter = TRUE, 
-                              removeHyphens = TRUE, what="fasterword", simplify = TRUE))
+    #Clean input phrase
+    sentenceToken <- as.character(tokens(tolower(sentence)))
     
-    #Check if entered text is valid and display a message
+    #Check if entered text is valid and display ready message
     if (length(sentenceToken) == 0) {
         return("App is ready. Please enter a phrase with valid characters in the textbox.")
     } else {
+        
         #Start Predicting Next Word
         
-        #Initialize empty data frame to hold the next word predictions
         match <- data.frame(Next=character(), MLEProb=numeric())
         
         #Attempt to match to a 4-gram if sentence has 3 or more words using MLE 

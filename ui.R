@@ -7,12 +7,11 @@ library(shiny)
 library(markdown)
 library(shinythemes)
 
-
-shinyUI(fluidPage(theme=shinytheme("superhero"),
+shinyUI(fluidPage(theme=shinytheme("cyborg"),
   
   titlePanel("Word Prediction Application"),
   
-  img(src = "SwiftKey_logo.jpeg", height = 140, width = 400),
+  img(src = "cap_logo.png", height = 80, width = 1000),
   
   #Side bar with instructions for using the app
   sidebarLayout(position = "right",
@@ -20,15 +19,13 @@ shinyUI(fluidPage(theme=shinytheme("superhero"),
         h3("Application Function"),
         p("This application will predict the next word for any phrase that is typed into the phrase box to the left."),
         h3("User Instructions"),
-        p("On the ''Word Predictions'' tab, wait until you see the ''App is ready'' message then  
-          begin typing the phrase you want to get a prediction for. You may need to wait for 
-          10-20 seconds for the message to appear."),
-        p("Your input phrase along with suggested next words will be shown below the textbox as 
+        p("Wait the ''App is ready'' message pops up then  
+          begin typing your phrase. The message may take a few seconds to show up."),
+        p("Your input phrase along with the predicted next words will be shown below the textbox as 
           you start typing."),
         p("The application is unable to give predictions if only numbers or symbols are typed in to the phrase box."),
     ),
     
-    #Main panel with tabs containing the text prediction app and a separate tab for app details
     mainPanel(
         tabsetPanel(type = "tabs", 
                     tabPanel("Word Prediction",
@@ -40,3 +37,4 @@ shinyUI(fluidPage(theme=shinytheme("superhero"),
     )
   )
 ))
+
